@@ -3,8 +3,20 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/possum-ui.umd.js",
+  "module": "./dist/possum-ui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/possum-ui.js",
+      "require": "./dist/possum-ui.umd.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
+    "prebuild": "rm -rf dist",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -15,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@types/node": "^22.15.8",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
